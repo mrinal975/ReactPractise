@@ -18,12 +18,19 @@ class Clock extends React.Component {
         date: new Date()
       }));
   }
+  handleClick(){
+    console.log('the button was clinked');
+
+  }
 
   render(){ 
     return (
-      <h1 className='heading'>
-        <span className="text"> Hello - {this.state.date.toLocaleTimeString(this.props.local)}</span>
-      </h1>
+      <div>
+        <h1 className='heading'>
+          <span className="text"> Hello - {this.state.date.toLocaleTimeString(this.props.local)}</span>
+        </h1>
+        <button onClick={this.handleClick}></button>
+      </div>
     );
   }
 }
