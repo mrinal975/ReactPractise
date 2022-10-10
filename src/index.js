@@ -7,15 +7,17 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
-function Clock(){
+function Clock({local}){
   return (
     <h1 className='heading'>
-      <span> Hello World {new Date().toLocaleTimeString()}</span>
+      <span> Hello World {new Date().toLocaleTimeString(local)}</span>
     </h1>
   );
 }
 
-root.render(Clock())
+root.render(
+  <Clock local="bn-BD"/>
+)
 
 reportWebVitals();
 
