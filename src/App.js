@@ -2,6 +2,7 @@
 // import Form from "./components/Form";
 // import Calculator from "./components/Calculator";
 import ClickCounter from "./components/ClickCounter";
+import HoverCounter from "./components/HoverCounter";
 
 // const quantities = [1,2,3];
 function App() {
@@ -11,6 +12,7 @@ function App() {
       {/* <Form></Form> */}
       {/* <Calculator></Calculator> */}
       <ClickCounter></ClickCounter>
+      <HoverCounter></HoverCounter>
       </div>
   );
 }
