@@ -1,4 +1,6 @@
 import React from "react";
+import { convert, toCelsius, toFahrenheit } from "../lib/converter";
+import BoilingVerdict from "./BoilingVerdict";
 import TemperateInput from "./TemperateInput";
 export default class Calculator extends React.Component{
     state = {
@@ -15,13 +17,19 @@ export default class Calculator extends React.Component{
 
     render(){
         const {temperature, scale} = this.state;
+        const celsius = scale==='f' ?convert(temperature, toCelsius):temperature;
+        const fahrenheit = scale==='c'?convert(temperature,toFahrenheit):temperature;
         
         return(
             <div>
-                <TemperateInput scale="c"/>
-                <TemperateInput scale="f" />
+                
+                <TemperateInput scale="c" temperature={celsius}
+                onTemperatureChange={this.handleChange}/>
+
+                <TemperateInput scale="f" temperature={fahrenheit}
+                onTemperatureChange={this.handleChange}/>
             
-                {/* <BoilingVerdict celsius={parseFloat(temperature)}></BoilingVerdict> */}
+                <BoilingVerdict celsius={parseFloat(temperature)}></BoilingVerdict>
             </div>
         );
     }
