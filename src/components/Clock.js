@@ -16,8 +16,8 @@ class Clock extends React.Component {
   
   tick() {
     this.setState((state, props) => ({
-        date: new Date()
-      }));
+      date: new Date()
+    }));
   }
 
   handleClick = (local)=>{
@@ -37,7 +37,7 @@ class Clock extends React.Component {
         <h1 className='heading'>
           <span className="text"> Hello - {date.toLocaleTimeString(local)}</span>
         </h1>
-        <button type="button" onClick={this.handleClick('en-US')}>
+        <button type="button" onClick={this.handleClick} local="en-US">
           click here
         </button>
       </div>
