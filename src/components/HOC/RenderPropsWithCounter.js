@@ -1,20 +1,19 @@
 import React from "react";
-const WithCounter = (OriginalComponent) =>{
+export default class RenderPropsWithCounter extends React.Component{
 
-    class NewComponent extends React.Component{
+    state = {
+        count :0,
+    };
 
-
-        render(){
-            const { count}  = this.state;
-    
-            return <OriginalComponent count={count}
-            incrementCount={this.incrementCount}
-            />
-            
-        }
-
+    incrementCount= () => {
+        this.setState((prevState)=>({
+            count: prevState.count +1
+        }));
     }
-    return NewComponent;
-}
 
-export default WithCounter;
+    render(){
+        const {children} = this.props;
+        const {count} = this.state;
+        return children(count, this.incrementCount);
+    }
+}

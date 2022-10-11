@@ -21,4 +21,3 @@ export default class RenderPropsClickCounter extends React.Component{
         );
     }
 }
-export default WithCounter(ClickCounter);

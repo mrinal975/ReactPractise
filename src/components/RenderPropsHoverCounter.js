@@ -15,11 +15,10 @@ export default class RenderPropsHoverCounter extends React.Component {
         const {count} = this.state;
         return (
             <div>
-                <button type="button" onMouseOver={this.incrementCount}>
+                <h1 type="button" onMouseOver={this.incrementCount}>
                     Hover {count} times
-                </button>
+                </h1>
             </div>
         );
     }
 }
-export default WithCounter(HoverCounter);
