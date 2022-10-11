@@ -1,10 +1,6 @@
 import React from "react";
 
 class Button extends React.Component{
-    constructor(props) {
-        super(props);
-    }
-    
 
     shouldComponentUpdate(nextProps){
         const { change:currentChange, local:currentLocale } = this.props;
@@ -17,6 +13,7 @@ class Button extends React.Component{
 
     render(){
         const {change, local} = this.props;
+        // console.log(change, local);
         return (
             <button type="button" onClick={()=>change(local)}>
                 Click here
