@@ -1,6 +1,5 @@
 import React from "react";
 const WithCounter = (OriginalComponent) =>{
-
     class NewComponent extends React.Component{
         state = {
             count :0,
@@ -16,8 +15,7 @@ const WithCounter = (OriginalComponent) =>{
             const { count}  = this.state;
     
             return <OriginalComponent count={count}
-            incrementCount={this.incrementCount}
-            />
+            incrementCount={this.incrementCount} />
             
         }
 

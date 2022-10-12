@@ -16,10 +16,8 @@ function App() {
       {/* <ClockList quantities={quantities}/> */}
       {/* <Form></Form> */}
       {/* <Calculator></Calculator> */}
-      {/* <ClickCounter></ClickCounter>
-      <HoverCounter></HoverCounter> */}
-      {/* <RenderPropsClickCounter />
-      <RenderPropsHoverCounter /> */}
+      {/* <ClickCounter/>*/}
+      {/* <HoverCounter/> */}
 
       <RenderPropsWithCounter>
         {(counter,incrementCount )=>(
