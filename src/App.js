@@ -11,7 +11,10 @@
 // import RenderPropsHoverCounter from "./components/RenderPropsHoverCounter";
 // import Todo from "./components/Todo";
 import { useState } from "react";
-import UseEffectHook from "./components/UseEffectHook";
+// import UseEffectHook from "./components/UseEffectHook";
+
+import Callback from "./components/CallBack/Callback";
+
 function App() {
   
   const [show, setShow] =useState(true);
@@ -35,15 +38,15 @@ function App() {
         )}
       </RenderPropsWithCounter> */}
       {/* <Todo/> */}
-      <div>
+      {/* <div>
         {show && <UseEffectHook/>}
         <p>
           <button type="button" onClick={(e)=>setShow((prevShow=>!prevShow))}>
             {show ? 'Hide post' : 'Show post'}
           </button>
         </p>
-      </div>
-      
+      </div> */}
+        <Callback />
       </div>
   );
 }
