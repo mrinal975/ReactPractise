@@ -1,5 +1,7 @@
-import { useReducer } from "react";
+import React, { useReducer } from "react";
+import ComponentA from "./ComponentA";
 
+export const counterContext = React.createContext();
 const initialState = 0;
 const reducer = (state, action)=>{
     console.log('reducer called');
@@ -19,9 +21,10 @@ export default function ReducerWithContext(){
 
     return (
         <div>
-            <div>Count - {count}</div>
-            <button type="button" onClick={()=>dispatch('increment')}>Increment</button>
-            <button type="button" onClick={()=>dispatch('decrement')}>Decrement</button>
+            <div>Count:  {count}</div>
+            <counterContext.Provider value={{countDispatch: dispatch}}>
+                <ComponentA />
+            </counterContext.Provider>
         </div>
     );
 }
