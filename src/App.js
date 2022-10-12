@@ -5,10 +5,11 @@
 // import HoverCounter from "./components/HoverCounter";
 // const quantities = [1,2,3];
 
-import RenderPropsWithCounter from "./components/HOC/RenderPropsWithCounter";
-import RenderPropsClickCounter from "./components/RenderPropsClickCounter";
-import RenderPropsHoverCounter from "./components/RenderPropsHoverCounter";
+// import RenderPropsWithCounter from "./components/HOC/RenderPropsWithCounter";
+// import RenderPropsClickCounter from "./components/RenderPropsClickCounter";
 // import RenderPropsHoverCounter from "./components/RenderPropsHoverCounter";
+// import RenderPropsHoverCounter from "./components/RenderPropsHoverCounter";
+import Todo from "./components/Todo";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       {/* <ClickCounter/>*/}
       {/* <HoverCounter/> */}
 
-      <RenderPropsWithCounter>
+      {/* <RenderPropsWithCounter>
         {(counter,incrementCount )=>(
           <RenderPropsClickCounter count={counter} incrementCount = {incrementCount}/>
         )}
@@ -28,7 +29,8 @@ function App() {
         {(counter, incrementCount)=>(
           <RenderPropsHoverCounter count={counter} incrementCount = {incrementCount}/>
         )}
-      </RenderPropsWithCounter>
+      </RenderPropsWithCounter> */}
+      <Todo/>
       </div>
   );
 }
