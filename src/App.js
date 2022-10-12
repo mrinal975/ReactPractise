@@ -1,7 +1,8 @@
 // import Counter from "./components/Reducer/Counter";
 // import ComplexCounter from "./components/Reducer/ComplexCounter";
 // import CounterThree from "./components/Reducer/CounterThree";
-import ReducerWithContext from "./components/Reducer/ReducerWithContext";
+// import ReducerWithContext from "./components/Reducer/ReducerWithContext";
+import GetPost from "./components/Reducer/GetPost";
 function App() {
 
   return (
@@ -9,7 +10,8 @@ function App() {
       {/* <Counter></Counter> */}
       {/* <ComplexCounter></ComplexCounter> */}
       {/* <CounterThree></CounterThree> */}
-      <ReducerWithContext></ReducerWithContext>
+      {/* <ReducerWithContext></ReducerWithContext> */}
+      <GetPost></GetPost>
     </div>
   );
 }
