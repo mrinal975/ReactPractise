@@ -9,9 +9,13 @@
 // import RenderPropsClickCounter from "./components/RenderPropsClickCounter";
 // import RenderPropsHoverCounter from "./components/RenderPropsHoverCounter";
 // import RenderPropsHoverCounter from "./components/RenderPropsHoverCounter";
-import Todo from "./components/Todo";
-
+// import Todo from "./components/Todo";
+import { useState } from "react";
+import UseEffectHook from "./components/UseEffectHook";
 function App() {
+  
+  const [show, setShow] =useState(true);
+
   return (
     <div className="app">
       {/* <ClockList quantities={quantities}/> */}
@@ -30,7 +34,16 @@ function App() {
           <RenderPropsHoverCounter count={counter} incrementCount = {incrementCount}/>
         )}
       </RenderPropsWithCounter> */}
-      <Todo/>
+      {/* <Todo/> */}
+      <div>
+        {show && <UseEffectHook/>}
+        <p>
+          <button type="button" onClick={(e)=>setShow((prevShow=>!prevShow))}>
+            {show ? 'Hide post' : 'Show post'}
+          </button>
+        </p>
+      </div>
+      
       </div>
   );
 }
