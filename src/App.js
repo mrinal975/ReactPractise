@@ -1,20 +1,7 @@
 // import ClockList from "./components/ClockList";
-// import Form from "./components/Form";
-// import Calculator from "./components/Calculator";
-// import ClickCounter from "./components/ClickCounter";
-// import HoverCounter from "./components/HoverCounter";
-// const quantities = [1,2,3];
-
-// import RenderPropsWithCounter from "./components/HOC/RenderPropsWithCounter";
-// import RenderPropsClickCounter from "./components/RenderPropsClickCounter";
-// import RenderPropsHoverCounter from "./components/RenderPropsHoverCounter";
-// import RenderPropsHoverCounter from "./components/RenderPropsHoverCounter";
-// import Todo from "./components/Todo";
-import { useState } from "react";
-import UseEffectHook from "./components/UseEffectHook";
 function App() {
   
-  const [show, setShow] =useState(true);
+  // const [show, setShow] =useState(true);
 
   return (
     <div className="app">
@@ -35,14 +22,14 @@ function App() {
         )}
       </RenderPropsWithCounter> */}
       {/* <Todo/> */}
-      <div>
-        {show && <UseEffectHook/>}
+      {/*<div>
+         {show && <UseEffectHook/>}
         <p>
           <button type="button" onClick={(e)=>setShow((prevShow=>!prevShow))}>
             {show ? 'Hide post' : 'Show post'}
           </button>
         </p>
-      </div>
+      </div> */}
       
       </div>
   );
