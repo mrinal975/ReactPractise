@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Button from "./Button";
 import ShowCount from "./ShowCount";
 import Title from "./Title";
@@ -15,10 +15,17 @@ export default function Callback(){
         setCount2((prevCount)=>prevCount+5);
     },[]);
 
+    const isEvenOrOdd = useMemo(()=>{
+        let i = 0;
+        while(i < 1000000000) i+=1
+        return count1 % 2 === 0;
+    },[count1]);
+
     return (
         <div>
             <Title />
             <ShowCount count={count1} title ="Count 1"></ShowCount>
+            <span>{isEvenOrOdd?'Even':'Odd'}</span>
             <Button handleClick = {incrementByOne}>Increment by One</Button>
             <br/>
             <br/>
