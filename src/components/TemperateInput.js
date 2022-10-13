@@ -9,7 +9,7 @@ export default function TemperateInput({temperature, scale, onTemperatureChange}
         <fieldset>
             <legend>Enter Temperate in {scaleNames[scale]}:</legend>
             <input type="text" value={temperature} 
-            onChange={(e)=>onTemperatureChange(e,scale)}>
+            onChange={(e)=>onTemperatureChange(e, scale)}>
             </input>
         </fieldset>
     );
