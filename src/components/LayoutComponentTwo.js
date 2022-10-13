@@ -2,7 +2,7 @@ import useWindowWidth from "./Hook/useWindowWidth";
 
 export default function LayoutComponentTwo(){
     
-    const onSmallScreen = useWindowWidth();
+    const onSmallScreen = useWindowWidth(600);
 
     return (
         <div className={onSmallScreen? 'small' : 'large' }>
