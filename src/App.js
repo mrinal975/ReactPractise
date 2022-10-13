@@ -9,9 +9,7 @@ function App() {
       {/* <ClickCounter/>*/}
       {/* <HoverCounter/> */}
       {/* <Todo/> */}
-      {/**/}
-      
-      </div>
+    </div>
   );
 }
 
