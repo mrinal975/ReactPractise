@@ -1,5 +1,5 @@
 
-// import Form from "./components/Form";
+
 // import Calculator from "./components/Calculator";
 // import ClickCounter from "./components/ClickCounter";
 // import HoverCounter from "./components/HoverCounter";
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="app">
       
-      {/* <Form></Form> */}
+      
       {/* <Calculator></Calculator> */}
       {/* <ClickCounter/>*/}
       {/* <HoverCounter/> */}
