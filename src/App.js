@@ -1,11 +1,9 @@
-import Todo from "./components/Todo";
+import LayoutComponent from "./components/LayoutComponent";
 
 function App() {
   return (
     <div className="app">
-      
-      
-      <Todo/>
+      <LayoutComponent/>
     </div>
   );
 }
