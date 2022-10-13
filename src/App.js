@@ -3,7 +3,7 @@
 // import Calculator from "./components/Calculator";
 // import ClickCounter from "./components/ClickCounter";
 // import HoverCounter from "./components/HoverCounter";
-// import RenderPropsWithCounter from "./components/HOC/RenderPropsWithCounter";
+// import RenderPropsWithCounter from "./components/RenderPropsWithCounter";
 // import RenderPropsClickCounter from "./components/RenderPropsClickCounter";
 // import RenderPropsHoverCounter from "./components/RenderPropsHoverCounter";
 // import RenderPropsHoverCounter from "./components/RenderPropsHoverCounter";
