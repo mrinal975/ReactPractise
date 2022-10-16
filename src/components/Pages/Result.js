@@ -3,9 +3,9 @@ import Analysis from "../Analysis";
 
 export default function Result(){
     return (
-        <>
-        <Summary></Summary>
-        <Analysis></Analysis>
-        </>
+        <div className="container">
+            <Summary></Summary>
+            <Analysis></Analysis>
+        </div>
     );
 }
