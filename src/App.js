@@ -1,6 +1,7 @@
 import Layout from './components/Layout';
 // import Home from './components/Pages/Home';
-import Signup from './components/Pages/Signup';
+// import Signup from './components/Pages/Signup';
+import Quiz from './components/Pages/Quiz';
 import './styles/App.css';
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
       <Layout>
       </Layout>
       {/* <Home/> */}
-      <Signup />
+      {/* <Signup /> */}
+      <Quiz/>
     </div>
     
   );
