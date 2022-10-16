@@ -4,6 +4,7 @@ import Checkbox from '../Checkbox';
 import Form from "../Form";
 import Illustration from "../Illustration";
 import TextInput from '../TextInput';
+import signupImg from '../../assets/3.jpg';
 
 export default function Signup(){
     return (
@@ -11,7 +12,7 @@ export default function Signup(){
             <h1>Create an account</h1>
 
             <div className={classes.column}>
-                <Illustration></Illustration>
+                <Illustration image={signupImg}></Illustration>
                 <Form className={`${classes.signup}`}>
                     <TextInput type="text" placeholder="Enter name" icon="alternate_email" />
                     <TextInput type="password" placeholder="Enter password" icon="lock" />

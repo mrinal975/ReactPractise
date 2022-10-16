@@ -1,9 +1,9 @@
-import signupImg from '../assets/signup.png';
+
 import classes from '../styles/Illustration.module.css';
-export default function Illustration(){
+export default function Illustration({image}){
     return (
         <div className={classes.illustration}>
-            <img src={signupImg} alt="Signup" />
+            <img src={image} alt={image} />
         </div>
     );
 }
