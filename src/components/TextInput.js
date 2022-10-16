@@ -3,7 +3,7 @@ export default function TextInput({icon, ...props}){
     return (
             <div className={classes.textInput}>
               <input {...props} />
-              <span class="material-icons-outlined"> {icon} </span>
+              <span className="material-icons-outlined"> {icon} </span>
             </div>
         );
 }
