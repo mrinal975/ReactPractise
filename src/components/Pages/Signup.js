@@ -12,7 +12,7 @@ export default function Signup(){
 
             <div className={classes.column}>
                 <Illustration></Illustration>
-                <Form className={'${classes.signup}'}>
+                <Form className={`${classes.signup}`}>
                     <TextInput type="text" placeholder="Enter name" icon="alternate_email" />
                     <TextInput type="password" placeholder="Enter password" icon="lock" />
                     <TextInput type="password" placeholder="Confirm password" icon="lock_clock" />
