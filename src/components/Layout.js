@@ -3,6 +3,7 @@ import Nav from "./Nav";
 
 export default function Layout(props){
     const Children = props.children
+    console.log('children', Children);
     return (
         <>
         <Nav/>
