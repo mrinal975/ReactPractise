@@ -1,8 +1,8 @@
 import classes from '../styles/Layout.module.css';
 import Nav from "./Nav";
 
-export default function Layout({Children}){
-    console.log(Children, 'Children');
+export default function Layout(props){
+    const Children = props.children
     return (
         <>
         <Nav/>

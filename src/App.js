@@ -1,10 +1,11 @@
 import Layout from './components/Layout';
 import './styles/App.css';
+import Result from './components/Pages/Result';
 function App() {
   return (
     <div className="app">
       <Layout>
-        <h1>dfskjgsajkb</h1>
+        <Result/>
       </Layout>
     </div>
     
