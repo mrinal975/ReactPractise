@@ -5,20 +5,23 @@ import Login from './components/Pages/Login';
 import Quiz from './components/Pages/Quiz';
 import Result from './components/Pages/Result';
 import Signup from './components/Pages/Signup';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {AuthProvider} from './contexts/AuthContext'
 function App() {
   return (
     <div className="app">
       <Router>
-        <Layout>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/Quiz" component={Quiz} />
-            <Route exact path="/result" component={Result} />
-           </Switch>
-        </Layout>
+        <AuthProvider>
+          <Layout>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/Quiz" component={Quiz} />
+              <Route exact path="/result" component={Result} />
+            </Switch>
+          </Layout>
+        </AuthProvider>
       </Router>
     </div>
     
