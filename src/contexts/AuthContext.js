@@ -49,7 +49,7 @@ export function AuthProvider({children}){
     //logout function
     function logout(){
         const auth = getAuth();
-        return signOut();
+        return signOut(auth);
 
     }
 
