@@ -24,9 +24,8 @@ export default function LoginForm() {
       await login(email, password);
       history.push("/");
     } catch (err) {
-      console.log(err);
-      setLoading(false);
-      setError("Failed to login!");
+        setLoading(false);
+        setError("Failed to login!");
     }
   }
 

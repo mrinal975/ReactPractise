@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export default function useVideoList(){
     const [loading, setLoadin] = useState(true);
-    const [error, setError] = useState(true);
+    const [error, setError] = useState(false);
     const [videos, setVideos] = useState([]);
 
     useEffect(()=>{
@@ -20,7 +20,7 @@ export default function useVideoList(){
                 setError(false);
                 setLoadin(true);
                 const snapshot = await get(videoQuery);
-                setLoadin(false);
+                
                 if(snapshot.exists()){
                     setVideos((prevVideos)=>{
                         return [...prevVideos, ...Object.values](snapshot.val());
@@ -28,8 +28,9 @@ export default function useVideoList(){
                 }else{
 
                 }
+                setLoadin(false);
             }catch(err){
-                console.log(err);
+                console.log('fetch data error', err);
                 setLoadin(false);
                 setError(true);
             }

@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import Button from './Button';
 import Checkbox from './Checkbox';
 import Form from "./Form";
 import TextInput from './TextInput';
-import { useAuth } from '../contexts/AuthContext';
-import { useHistory } from 'react-router-dom';
 
 export default function SignupForm(){
     const [userName, setUsername] = useState("");
@@ -20,7 +20,7 @@ export default function SignupForm(){
     async function handleSubmit(e){
         e.preventDefault();
         // do validayion
-        if(password != confirmPassword){
+        if(password !== confirmPassword){
             return setError('Password did not match');
         }
 
@@ -31,7 +31,6 @@ export default function SignupForm(){
             history.push("/");
         }
         catch(err){
-            console.log(err);
             setError("Failed to create an account");
             setLoading(true);
         }
