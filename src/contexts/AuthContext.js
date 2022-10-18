@@ -3,6 +3,8 @@ import { getAuth, createUserWithEmailAndPassword,
     updateProfile, signOut,
     signInWithEmailAndPassword,
     onAuthStateChanged} from "firebase/auth";
+import "../firebase";
+
 const AuthContext = React.createContext();
 
 export function useAuth(){

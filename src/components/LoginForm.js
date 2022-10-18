@@ -1,72 +1,64 @@
+import { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import Button from "./Button";
 import Form from "./Form";
 import TextInput from "./TextInput";
-import Button from "./Button";
-import { Link } from "react-router-dom";
-import { useAuth } from '../contexts/AuthContext';
-import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
 
-export default function LoginForm(){
-    const [email, setEmail] = useState("");
-    const [password, setpassword] = useState("");
-    const [error, setError] = useState();
-    const [loading, setLoading] = useState();
-    const {signup} = useAuth();
-    const history = useHistory();
+export default function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    async function handleSubmit(e){
-        e.preventDefault();
-        // do validayion
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState();
 
-        try{
-            setError("");
-            setLoading(true);
-            await signup(email, password);
-            history.push("/");
-        }
-        catch(err){
-            console.log(err);
-            setError("Failed to login");
-            setLoading(true);
-        }
-        
+  const { login } = useAuth();
+  const history = useHistory();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(email, password);
+      history.push("/");
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+      setError("Failed to login!");
     }
+  }
 
-    function handleSubmit(e){
+  return (
+    <Form style={{ height: "330px" }} onSubmit={handleSubmit}>
+      <TextInput
+        type="text"
+        placeholder="Enter email"
+        icon="alternate_email"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
 
-    }
+      <TextInput
+        type="password"
+        placeholder="Enter password"
+        icon="lock"
+        required
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
 
+      <Button type="submit" disabled={loading}>
+        <span>Submit Now</span>
+      </Button>
 
-    return (
-        <Form style={{height:'330px'}} className="form " onSubmit ={handleSubmit}>
-            <TextInput 
-            type = "text"
-            value = {email}
-            onChange={(e)=>setEmail(e.target.value)}
-            placeholder="Please enter email" 
-            icon ="alternate_email" />
+      {error && <p className="error">{error}</p>}
 
-            <TextInput 
-            type="password"  
-            placeholder="Please enter password" 
-            icon="lock"
-            onChange={(e)=>setpassword(e.target.value)}
-            /> 
-
-            <Button 
-            className="button" 
-            type="submit" 
-            disable={loading}>
-                <span>Login</span>
-            </Button>
-
-            {error && <p className="error">{error}</p>}
-
-            <div className="info">
-                Don't have an account? 
-                <Link to="/signup" >Signup</Link>
-                instead.
-            </div>
-        </Form>
-    );
+      <div className="info">
+        Don't have an account? <Link to="/signup">Signup</Link> instead.
+      </div>
+    </Form>
+  );
 }
