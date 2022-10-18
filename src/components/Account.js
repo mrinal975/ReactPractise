@@ -1,9 +1,9 @@
 import classes from '../styles/Account.module.css';
 import { Link } from "react-router-dom";
-import { useAuth, logout } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Account(){
-    const {currentUser} = useAuth();
+    const {currentUser, logout} = useAuth();
     return (
         <div className={classes.account}>
             {currentUser?(
