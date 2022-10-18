@@ -1,21 +1,17 @@
+import { Link } from "react-router-dom";
+import useVideoList from "../hooks /useVideoList";
 import Classes from '../styles/Videos.module.css';
 import Video from './Video';
-import { Link } from "react-router-dom";
 export default function Videos(){
+    const {loading, error, videos} = useVideoList();
     return (
         <div className={Classes.videos}>
-            <Link to="/quiz" >
-                <Video />
-            </Link>
-            <Link to="/quiz" >
-                <Video />
-            </Link>
-            <Link to="/quiz" >
-                <Video />
-            </Link>
-            <Link to="/quiz" >
-                <Video />
-            </Link>
+            {videos.map((video)=>(
+                <Link to="/quiz" >
+                    <Video />
+                </Link>
+            ))}
+            
         </div>
     );
 }
