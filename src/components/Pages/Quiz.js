@@ -117,7 +117,7 @@ export default function Quiz(){
                     next = {nextQuestion} 
                     prev = {prevQuestion}
                     submit = {submit}
-                    percentage={percentage} />
+                    progress={percentage} />
 
                     <MiniPlayer/>
                     </div>
