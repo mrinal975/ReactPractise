@@ -2,7 +2,6 @@ import { useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link } from "react-router-dom";
 import useVideoList from "../hooks/useVideoList";
-import Classes from '../styles/Videos.module.css';
 import Video from './Video';
 
 export default function Videos(){
@@ -11,7 +10,7 @@ export default function Videos(){
     const {loading, error, videos, hasMore} = useVideoList(page);
 
     return (
-        <div className={Classes.videos}>
+        <div >
             {videos.length>0 && 
             <InfiniteScroll 
             dataLength={videos.length}
