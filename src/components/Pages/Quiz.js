@@ -5,6 +5,7 @@ import useQuestion from "../../hooks/useQuestion";
 import Answers from "../Answers";
 import MiniPlayer from "../MiniPlayer";
 import ProgressBar from "../ProgressBar";
+
 export default function Quiz(){
 
     const {id} = useParams();
@@ -13,8 +14,6 @@ export default function Quiz(){
     
     const initialState = null;
     const reducer = (state, action) =>{
-    
-
         switch(action.type){
             case "questions":
                 action.value.forEach((question)=>{
@@ -43,6 +42,25 @@ export default function Quiz(){
     },[questions]);
 
 
+    //handle when user clicks the next button to get next question
+    function nextQuestion(){
+        if(currentQuestion+1 <questions.length){
+            setCurrentQuestion((prevCurrent)=>
+                prevCurrent + 1
+            );
+        }
+        console.log('next clicked');
+    }
+    
+    //handle when user clicks the previous button to get previous question
+    function prevQuestion(){
+        if(currentQuestion>=1&& currentQuestion<=questions.length){
+            setCurrentQuestion((prevCurrent)=>
+            prevCurrent-1
+            );
+        }
+    }
+
     function handleAnswerChange(e, index){
         dispatch({
             type:"answer",
@@ -53,6 +71,9 @@ export default function Quiz(){
     }
     
     
+    //calculate percentage of progress
+    const percentage = questions.length > 0 ?
+    (((currentQuestion+1) / questions.length) * 100):0;
     return (
         <>
             {error && <div> There was an error. </div>}
@@ -66,7 +87,11 @@ export default function Quiz(){
                     options={qna[currentQuestion].options} 
                     handleChange={handleAnswerChange}/>
                     
-                    <ProgressBar/>
+                    <ProgressBar 
+                    next={nextQuestion} 
+                    prev={prevQuestion} 
+                    percentage={percentage} />
+
                     <MiniPlayer/>
                     </div>
                 </>

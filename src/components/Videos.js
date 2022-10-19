@@ -24,11 +24,21 @@ export default function Videos(){
                         to={`/quiz/${video.youtubeID}`} 
                         key={video.youtubeID}>
                         
-                        <Video title={video.title} id={video.youtubeID} noq={video.noq}/>
+                        <Video 
+                        title={video.title} 
+                        id={video.youtubeID} 
+                        noq={video.noq}
+                        key={video.youtubeID}
+                        />
                     </Link>)
                 :
                 (
-                    <Video title={video.title} id={video.youtubeID} noq={video.noq}/>
+                    <Video 
+                    title={video.title} 
+                    id={video.youtubeID} 
+                    noq={video.noq}
+                    key={video.youtubeID}
+                    />
                 )
                     
                 ))}
