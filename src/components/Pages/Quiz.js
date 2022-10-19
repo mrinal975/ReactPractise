@@ -91,7 +91,7 @@ export default function Quiz(){
         });
         
         history.push({
-            pathname:`/result/${uid}`,
+            pathname:`/result/${id}`,
             state:{
                 qna
             }
