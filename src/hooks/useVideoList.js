@@ -9,10 +9,11 @@ import {
 } from 'firebase/database';
 import { useEffect, useState } from "react";
 
-export default function useVideoList(){
+export default function useVideoList(page){
     const [loading, setLoadin] = useState(true);
     const [error, setError] = useState(false);
     const [videos, setVideos] = useState([]);
+    const [hasMore, setHasMore] = useState(true);
 
     useEffect(()=>{
         async function fetchVideos(){
@@ -25,7 +26,7 @@ export default function useVideoList(){
                 startAt(""+page),
                 limitToFirst(8)
             );
-            console.log('hiiiiiiiiiii');
+            // console.log('hiiiiiiiiiii');
             try{
                 setError(false);
                 setLoadin(true);
@@ -36,7 +37,7 @@ export default function useVideoList(){
                         return [...prevVideos, ...Object.values](snapshot.val());
                     });
                 }else{
-
+                    setHasMore(false);
                 }
                 setLoadin(false);
             }catch(err){
@@ -45,7 +46,7 @@ export default function useVideoList(){
                 setError(true);
             }
         }
-    },[]);
+    },[page]);
 
     return {
         loading,
