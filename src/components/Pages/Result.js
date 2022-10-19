@@ -2,6 +2,7 @@ import Summary from "../Summary";
 import Analysis from "../Analysis";
 import { useHistory, useParams } from "react-router-dom";
 import useAnswer from "../../hooks/useAnswer";
+import _ from "lodash";
 
 export default function Result(){
 
@@ -18,10 +19,24 @@ export default function Result(){
         let score = 0;
         
         answers.forEach((question, index1)=>{
-            let currectIndex = [];
+            let correctIndex = [];
             let checkedIndex = [];
-        })
+
+            question.options.forEach((option, index2)=>{
+                if(option.correct) correctIndex.push(index2);
+                if(qna[index1].options[index2].checked){
+                    checkedIndex.push(index2);
+                    option.checked = true;
+                }
+            });
+            if(_.isEqual(correctIndex,checkedIndex)){
+                score = score + 5;
+            }
+        });
+        return score;
     }
+
+    const useScope = Calculate();
 
     return (
         <>
@@ -29,8 +44,8 @@ export default function Result(){
         {error && <div>There was an error!</div>}
         {answers && answers.length>0 &&(
             <>
-                <Summary></Summary>
-                <Analysis></Analysis>
+                <Summary score={useScope} noq={answers.length}></Summary>
+                <Analysis answers={answers}></Analysis>
             </>
         )}
 
