@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import classes from '../styles/ProgressBar.module.css';
 import Button from './Button';
-export default function ProgressBar({next, prev, submit, percentage}){
+export default function ProgressBar({next, prev, submit, progress}){
   const [tooltip, setTooltip] = useState(false);
   const tooltipRef = useRef();
 
@@ -28,19 +28,19 @@ export default function ProgressBar({next, prev, submit, percentage}){
             className={classes.tooltip}
             ref={tooltipRef}
             >
-              {percentage}% Complete!
+              {progress}% Complete!
             </div>
             <div className={classes.rangeBody}>
               <div 
               className={classes.progress} 
-              style={{width:`${percentage}%`}}
+              style={{width:`${progress}%`}}
               onMouseOver={toggleTooltip}
               onMouseOut={toggleTooltip}
               ></div>
             </div>
           </div>
-            <Button className={classes.next} onClick={percentage===100?submit:next}>
-                <span>{percentage===100?`Submit Quiz`:`Next Question`} </span>
+            <Button className={classes.next} onClick={progress===100?submit:next}>
+                <span>{progress===100?`Submit Quiz`:`Next Question`} </span>
                 <span className="material-icons-outlined"> arrow_forward </span>
             </Button>
         </div>
