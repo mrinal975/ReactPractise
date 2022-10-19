@@ -34,7 +34,7 @@ export default function useVideoList(page){
                 
                 if(snapshot.exists()){
                     setVideos((prevVideos)=>{
-                        return [...prevVideos, ...Object.values](snapshot.val());
+                        return [...prevVideos, ...Object.values(snapshot.val())];
                     });
                 }else{
                     setHasMore(false);
@@ -46,11 +46,13 @@ export default function useVideoList(page){
                 setError(true);
             }
         }
+        fetchVideos();
     },[page]);
 
     return {
         loading,
         error,
-        videos
+        videos,
+        hasMore
     };
 }
