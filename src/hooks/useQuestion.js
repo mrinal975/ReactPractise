@@ -6,7 +6,7 @@ import {
 } from 'firebase/database';
 import { useEffect, useState } from "react";
 
-export default function useuseQuestion(videoId){
+export default function useQuestion(videoId){
     const [loading, setLoadin] = useState(true);
     const [error, setError] = useState(false);
     const [questions, setQuestions] = useState([]);
@@ -40,7 +40,7 @@ export default function useuseQuestion(videoId){
                 setError(true);
             }
         }
-        fetchVideos();
+        fetchQuestion();
     },[videoId]);
 
     return {
