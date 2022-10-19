@@ -1,10 +1,12 @@
 import _ from "lodash";
 import { useEffect, useReducer, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import useQuestion from "../../hooks/useQuestion";
 import Answers from "../Answers";
 import MiniPlayer from "../MiniPlayer";
 import ProgressBar from "../ProgressBar";
+import { useAuth } from "../../contexts/AuthContext";
+import { getDatabase, ref, set } from "firebase/database";
 
 export default function Quiz(){
 
@@ -32,7 +34,8 @@ export default function Quiz(){
     }
     
     const [qna, dispatch] = useReducer(reducer, initialState);
-    
+    const { currentUser } = useAuth();
+    const history = useHistory();
 
     useEffect(()=>{
         dispatch({
@@ -42,7 +45,7 @@ export default function Quiz(){
     },[questions]);
 
 
-    //handle when user clicks the next button to get next question
+    //Handle when user clicks the next button to get next question
     function nextQuestion(){
         if(currentQuestion+1 <questions.length){
             setCurrentQuestion((prevCurrent)=>
@@ -52,7 +55,7 @@ export default function Quiz(){
         console.log('next clicked');
     }
     
-    //handle when user clicks the previous button to get previous question
+    //Handle when user clicks the previous button to get previous question
     function prevQuestion(){
         if(currentQuestion>=1&& currentQuestion<=questions.length){
             setCurrentQuestion((prevCurrent)=>
@@ -71,9 +74,30 @@ export default function Quiz(){
     }
     
     
-    //calculate percentage of progress
+    //Calculate percentage of progress
     const percentage = questions.length > 0 ?
     (((currentQuestion+1) / questions.length) * 100):0;
+
+
+    //Submit quiz
+    async function submit(){
+        console.log('submit clicked');
+        const { uid } = currentUser;
+        const db = getDatabase();
+        const resultRef = ref(db, `result/${uid}`);
+        
+        await set(resultRef,{
+            [id]:qna
+        });
+        
+        history.push({
+            pathname:`/result/${uid}`,
+            state:{
+                qna
+            }
+        });
+    }
+
     return (
         <>
             {error && <div> There was an error. </div>}
@@ -88,8 +112,9 @@ export default function Quiz(){
                     handleChange={handleAnswerChange}/>
                     
                     <ProgressBar 
-                    next={nextQuestion} 
-                    prev={prevQuestion} 
+                    next = {nextQuestion} 
+                    prev = {prevQuestion}
+                    submit = {submit}
                     percentage={percentage} />
 
                     <MiniPlayer/>

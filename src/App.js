@@ -18,7 +18,7 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/quiz/:id" component={Quiz} />
-              <Route exact path="/result" component={Result} />
+              <Route exact path="/result/:id" component={Result} />
             </Switch>
           </Layout>
         </AuthProvider>
