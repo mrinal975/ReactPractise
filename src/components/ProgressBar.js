@@ -13,7 +13,7 @@ export default function ProgressBar({next, prev, submit, percentage}){
             </div>
           </div>
             <Button className={classes.next} onClick={percentage===100?submit:next}>
-                <span>{percentage===100?`Submit Exam`:`Next Question`} </span>
+                <span>{percentage===100?`Submit Quiz`:`Next Question`} </span>
                 <span className="material-icons-outlined"> arrow_forward </span>
             </Button>
         </div>

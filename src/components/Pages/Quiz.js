@@ -68,7 +68,7 @@ export default function Quiz(){
         dispatch({
             type:"answer",
             questionID: currentQuestion,
-            optionsIndex: index,
+            optionIndex: index,
             value: e.target.checked
         })
     }
