@@ -36,6 +36,9 @@ export default function Quiz(){
     const [qna, dispatch] = useReducer(reducer, initialState);
     const { currentUser } = useAuth();
     const history = useHistory();
+    const { location } = history;
+    const { state } = location;
+    const { videoTitle } = state;
 
     useEffect(()=>{
         dispatch({
@@ -119,7 +122,7 @@ export default function Quiz(){
 
                     <MiniPlayer 
                     id={id}
-                    title={qna[currentQuestion].title}
+                    title={videoTitle}
                     />
                     </div>
                 </>
