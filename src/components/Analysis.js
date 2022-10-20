@@ -1,5 +1,5 @@
-import Questions from "./Questions";
 import classes from "../styles/Analysis.module.css";
+import Questions from "./Questions";
 
 export default function Analysis({answers}){
     return (
