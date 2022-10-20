@@ -1,12 +1,12 @@
+import { getDatabase, ref, set } from "firebase/database";
 import _ from "lodash";
 import { useEffect, useReducer, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 import useQuestion from "../../hooks/useQuestion";
 import Answers from "../Answers";
 import MiniPlayer from "../MiniPlayer";
 import ProgressBar from "../ProgressBar";
-import { useAuth } from "../../contexts/AuthContext";
-import { getDatabase, ref, set } from "firebase/database";
 
 export default function Quiz(){
 
@@ -117,7 +117,10 @@ export default function Quiz(){
                     submit = {submit}
                     progress={percentage} />
 
-                    <MiniPlayer/>
+                    <MiniPlayer 
+                    id={id}
+                    title={qna[currentQuestion].title}
+                    />
                     </div>
                 </>
             )}
