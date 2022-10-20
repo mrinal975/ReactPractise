@@ -27,7 +27,6 @@ export default function useAnswer(videoId){
                 
                 //request firebase database
                 const snapshot = await get(answerQuery);
-                console.log('-------',snapshot.val());
 
                 if(snapshot.exists()){
                     setAnswers((prevAnswers)=>{
@@ -43,8 +42,6 @@ export default function useAnswer(videoId){
         }
         fetchAnswers();
     },[videoId]);
-
-    console.log(answers,videoId );
     return {
         loading,
         error,

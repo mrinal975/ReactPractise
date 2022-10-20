@@ -52,7 +52,6 @@ export default function Quiz(){
                 prevCurrent + 1
             );
         }
-        console.log('next clicked');
     }
     
     //Handle when user clicks the previous button to get previous question
@@ -81,7 +80,6 @@ export default function Quiz(){
 
     //Submit quiz
     async function submit(){
-        console.log('submit clicked');
         const { uid } = currentUser;
         const db = getDatabase();
         const resultRef = ref(db, `result/${uid}`);

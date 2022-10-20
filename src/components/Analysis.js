@@ -1,4 +1,4 @@
-import Question from "./Question";
+import Questions from "./Questions";
 import classes from "../styles/Analysis.module.css";
 
 export default function Analysis({answers}){
@@ -6,7 +6,7 @@ export default function Analysis({answers}){
         <>
             <div className={classes.analysis}>
             <h1>Question Analysis</h1>
-                <Question answers={answers}/>
+                <Questions answers={answers}/>
             </div>
         </>
     );
